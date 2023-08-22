@@ -1,7 +1,7 @@
 <template>
     <main class="pt-36  md:h-[600px] flex justify-center items-center">
         <div class="text-white text-[16px] h-full">
-            <h1 class="md:text-[80px] text-[60px] font-bold w-[30rem] leading-[0.9]">Self-service Laundromat in <span class="text-cyan-500">Oradea</span></h1>
+            <h1 class="md:text-[80px] text-[60px] font-bold w-[20rem] leading-[0.9]">Self-service Laundromat in <span class="text-cyan-500">Oradea</span></h1>
         </div>
     </main>
     <Services></Services>
@@ -30,7 +30,7 @@
 
 <style lang="scss" scoped>
     main {
-        height: 700px;
+        height: 600px;
         width: 100%;
         background-image: linear-gradient(90deg, rgba(9,9,121,0.3) 37%, rgba(0,212,255,0.3) 100%), url('https://show.moxcreative.com/cleanox/wp-content/uploads/sites/11/2021/11/laundry-room-with-a-washing-machine-scaled.jpg');
         opacity: 0.6;

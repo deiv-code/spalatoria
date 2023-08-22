@@ -5,17 +5,19 @@
             <router-link :to="{name: 'home'}">Logo</router-link>
             <div class="flex flex-col" v-show="showMenu">
                 <router-link class="m-2 text-xl" :to="{name: 'home'}">Home</router-link>
-                <router-link class="m-2 text-xl" :to="{name: 'home'}">Price</router-link>
-                <router-link class="m-2 text-xl" :to="{name: 'home'}">How It Works</router-link>
-                <router-link class="m-2 text-xl" :to="{name: 'home'}">Contact Us</router-link>
+                <router-link class="m-2 text-xl" :to="{name: 'home'}">{{currentLanguage === 'en' ? 'Price' : 'Preturi'}}</router-link>
+                <router-link class="m-2 text-xl" :to="{name: 'home'}">{{currentLanguage === 'en' ? 'How It Works' : 'Cum funcționează'}}</router-link>
+                <router-link class="m-2 text-xl" :to="{name: 'home'}">{{currentLanguage === 'en' ? 'Contact Us' : 'Contact'}}</router-link>
+                <a class="m-2 text-xl" @click="changeLanguage()">Change Language</a>
             </div>
         </div>
         
         <div class="nav-links hidden md:block">
             <router-link class="m-2 text-xl" :to="{name: 'home'}">Home</router-link>
-            <router-link class="m-2 text-xl" :to="{name: 'home'}">Price</router-link>
-            <router-link class="m-2 text-xl" :to="{name: 'home'}">How It Works</router-link>
-            <router-link class="m-2 text-xl" :to="{name: 'home'}">Contact Us</router-link>
+            <router-link class="m-2 text-xl" :to="{name: 'home'}">{{currentLanguage === 'en' ? 'Price' : 'Preturi'}}</router-link>
+            <router-link class="m-2 text-xl" :to="{name: 'home'}">{{currentLanguage === 'en' ? 'How It Works' : 'Cum funcționează'}}</router-link>
+            <router-link class="m-2 text-xl" :to="{name: 'home'}">{{currentLanguage === 'en' ? 'Contact Us' : 'Contact'}}</router-link>
+            <a class="m-2 text-xl" @click="changeLanguage()">Change Language</a>
         </div>
 
         <div class="sidemenu md:hidden">
@@ -32,14 +34,22 @@
 </template>
 
 <script>
-    import {ref} from 'vue'
-    
+    import { ref, computed } from 'vue';
+    import {store} from '../store'
     export default {
         setup() {
             const showMenu = ref(false);
 
+            const currentLanguage = computed(() => store.language);
+
+            let changeLanguage = () => {
+                store.language = currentLanguage.value === 'ro' ? 'en' : 'ro'
+            }
+
             return {
-                showMenu
+                showMenu,
+                changeLanguage,
+                currentLanguage
             }
         }
     }

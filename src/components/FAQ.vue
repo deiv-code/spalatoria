@@ -16,10 +16,10 @@
 
           <div className="flex flex-col text-center w-full mb-6">
             <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">
-              Contact Us
+              {{language === 'en' ? 'Contact Us' : 'Contact'}}
             </h1>
             <p className="lg:w-2/3 mx-auto leading-relaxed text-base">
-                Cant find an answer for your questions? Contact Us
+                {{language === 'en' ? 'Cant find an answer for your questions? Contact Us' : "Nu găsiți răspuns la întrebările dumneavoastră? Contactați-ne"}}
             </p>
           </div>
           <div className="lg:w-1/2 md:w-2/3 mx-auto">
@@ -27,7 +27,7 @@
               <div className="p-2 w-1/2">
                 <div className="relative">
                   <label for="name" className="leading-7 text-sm text-gray-600">
-                    Name
+                    {{language === 'en' ? 'Name' : 'Nume'}}
                   </label>
                   <input
                     type="text"
@@ -59,7 +59,7 @@
                     for="message"
                     className="leading-7 text-sm text-gray-600"
                   >
-                    Message
+                    {{language === 'en' ? 'Message' : 'Mesaj'}}
                   </label>
                   <textarea
                     id="message"
@@ -70,7 +70,7 @@
               </div>
               <div className="p-2 w-full">
                 <button className="flex mx-auto text-white bg-cyan-500 border-0 py-2 px-8 focus:outline-none hover:bg-cyan-600 rounded text-lg">
-                  Send
+                  {{language === 'en' ? 'Send' : 'Trimite'}}
                 </button>
               </div>
               
@@ -86,6 +86,7 @@
 </template>
 
 <script>
+import {store} from '../store'
     export default {
         data() {
             return {
@@ -106,6 +107,11 @@
             
         }
     },
+    computed: {
+            language() {
+                return store.language
+            }
+        },
     methods: {
         showRes(i) {
             this.faqs[i].active = !this.faqs[i].active
