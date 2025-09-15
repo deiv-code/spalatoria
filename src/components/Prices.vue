@@ -8,8 +8,8 @@
                 <h5 class="py-2 text-lg">30min</h5>
                 <hr>
                 <ul>
-                    <li class="my-2">10kg - 15 Ron</li>
-                    <li class="my-2">14kg - 20 Ron</li>
+                    <li class="my-2">10kg - 25 Ron</li>
+                    <li class="my-2">14kg - 30 Ron</li>
                 </ul>
             </div>
             <div class="border text-center rounded">
